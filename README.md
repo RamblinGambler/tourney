@@ -35,7 +35,7 @@ Here is what happens behind this:
 #=> { round1: { 1 => ['team1', 'team6'], 2 => ['team2', 'team7'], 3 => ['team3', 'team8'], 4 => ['team4', 'team9'], 5 => ['team5', 'team10']} }
 ```
 
-Although the format is always the same, the pairing system always matches teams
+Although the format is always the same, the pairing system matches teams
 in a random order, that's to say, if you run `generate_first_round(teams)`
 method twice, the output for the first and second time **will be different**.
 
