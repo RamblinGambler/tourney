@@ -10,10 +10,9 @@ class BracketGenerator
     if teams.length % 2 == 0
       @teams = teams
     else
-      raise "Team array not even, Tourney does not yet work with even team groups."
+      raise "Team array not even, Tourney does not yet work with odd team groups."
     end
   end
-
 
   # Public: The team array shuffled.
   #
@@ -33,32 +32,21 @@ class BracketGenerator
   #
   # Returns an Array of Arrays.
   def split_teams
-    shuffled_teams.each_slice(team_count/2).to_a
+    @split_teams ||= shuffled_teams.each_slice(team_count/2).to_a
   end
 
-  # TODO: Can probably be refactored.
   # Public: The matches for the first round. Each match is an Array containing
   # both teams and the round number.
   #
   # Returns a Hash.
   def filled_brackets
-    sorted_teams = split_teams
-    first_half = sorted_teams[0]
-    second_half = sorted_teams[1]
-    empty_brackets = brackets
-
-    empty_brackets.each_with_index do |(match), idx|
-      empty_brackets[match] = [first_half[idx], second_half[idx], 1]
-    end
-    empty_brackets
+    Hash[split_teams.first.zip(split_teams.last).map.with_index(1) { |pair, idx| [idx, pair] }]
   end
 
-  # Public: Initializes the hash containing the matches in the first round.
+  # Public: Assings the generated brackets to the first round.
   #
   # Returns a Hash.
-  def brackets
-    matches = {}
-    (team_count/2).times { |i| matches["match#{i + 1}"] = [] }
-    matches
+  def first_round
+    { round1: filled_brackets }
   end
 end
