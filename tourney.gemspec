@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Tourney::VERSION
   spec.authors       = ["Dor3nz"]
   spec.email         = ["genis@codegram.com"]
-  spec.description   = %q{Write a gem description}
-  spec.summary       = %q{Write a gem summary}
+  spec.description   = %q{A gem to build and manage tournament brackets.}
+  spec.summary       = %q{A gem to build and manage tournament brackets.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
