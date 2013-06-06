@@ -37,7 +37,7 @@ Here is what happens behind this:
 
 Although the format is always the same, the pairing system matches teams
 in a random order, that's to say, if you run `generate_first_round(teams)`
-method twice, the output for the first and second time **will be different**.
+method twice, the output for each time **will be different**.
 
 ### Managing match outcome
 This part is still WIP.
